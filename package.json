@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "A client library for Kontrol service registry",
   "main": "index.js",
+  "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,9 +16,19 @@
     "kontrol",
     "koding"
   ],
-  "author": "Koding Team <team@koding.com>",
+  "author": {
+    "name": "Koding Team",
+    "email": "<team@koding.com>"
+  },
+  "dependencies": {
+    "kite.js": "git+ssh://git@github.com:koding/kite.js.git"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/koding/kontrol.js/issues"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.7.1",
+    "uglify-js": "~2.4.12"
   }
 }
