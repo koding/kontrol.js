@@ -25,7 +25,7 @@
     "url": "https://github.com/koding/kontrol.js/issues"
   },
   "dependencies": {
-    "kite.js": "0.0.1"
+    "kite.js": "~0.0.2"
   },
   "devDependencies": {
     "coffee-script": "~1.7.1",
