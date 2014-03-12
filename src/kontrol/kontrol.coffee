@@ -5,7 +5,12 @@ module.exports = class Kontrol extends EventEmitter
   constructor: (options) ->
     return new Kontrol options  unless this instanceof Kontrol
 
-    @options = options
+    @options =
+      if 'string' is typeof options
+      then url: options
+      else options
+
+    @options.autoReconnect ?= yes
 
     @kite = @initKite()
 
