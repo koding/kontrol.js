@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postpublish": "tar -xcvf ./bluebird.tgz"
+    "postpublish": "tar -zxvf ./bluebird.tgz"
   },
   "repository": {
     "type": "git",
