@@ -4,8 +4,7 @@
   "description": "A client library for Kontrol service registry",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postpublish": "tar -zxvf ./bluebird-shim.tgz"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
