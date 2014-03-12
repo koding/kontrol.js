@@ -1,6 +1,9 @@
-all: build browserify build-promises browserify-promises uglify uglify-promises dev
+all: bluebird-shim build browserify build-promises browserify-promises uglify uglify-promises dev
 
 dev: browserify-dev browserify-promises-dev
+
+bluebird-shim:
+	tar -zxvf ./bluebird-shim.tgz
 
 build:
 	node_modules/.bin/coffee -b -o ./lib/kontrol -c ./src/kontrol/*.coffee
@@ -17,10 +20,10 @@ browserify-promises:
 	node_modules/.bin/browserify -s Kontrol -x bluebird -t coffeeify src/kontrol-as-promised/kontrol.coffee > bundle-promises.js
 
 browserify-dev:
-	node_modules/.bin/browserify -s Kontrol -x bluebird -d -t coffeeify src/kontrol/kontrol.coffee > bundle-dev.js
+	node_modules/.bin/browserify -s Kontrol -d -x bluebird -t coffeeify src/kontrol/kontrol.coffee > bundle-dev.js
 
 browserify-promises-dev:
-	node_modules/.bin/browserify -s Kontrol -x bluebird -d -t coffeeify src/kontrol-as-promised/kontrol.coffee > bundle-promises-dev.js
+	node_modules/.bin/browserify -s Kontrol  -d -x bluebird -t coffeeify src/kontrol-as-promised/kontrol.coffee > bundle-promises-dev.js
 
 uglify:
 	node_modules/.bin/uglifyjs bundle.js -c -m -o bundle.min.js 2>/dev/null
