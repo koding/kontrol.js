@@ -23,6 +23,7 @@ type KontrolQuery struct {
   region      string
   hostname    string
   id          string
+}
 ```
 
 ## k.fetchKites(selector, callback)
