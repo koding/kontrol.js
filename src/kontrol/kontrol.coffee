@@ -25,6 +25,8 @@ module.exports = class Kontrol extends EventEmitter
       name  : 'kontrol'
       url   : url
       auth  : { type, key }
+    # forward kite error events:
+    .on 'error', (event) => @emit 'error', event
 
   initKite: (options) ->
     Kite = require 'kite.js'
@@ -69,6 +71,7 @@ module.exports = class Kontrol extends EventEmitter
   cancelWatcher: (id, callback) ->
 
   createUpdateHandler: (changes, callback) -> (err, change) =>
+
 
   @actions      =
     REGISTER    : 'register'
