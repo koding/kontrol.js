@@ -5,16 +5,17 @@ module.exports = class Kontrol extends EventEmitter
   Kite = require 'kite.js'
 
   constructor: (options) ->
+    throw new Error "Missing option: auth"  unless options.auth
+
     return new Kontrol options  unless this instanceof Kontrol
 
     @options = options
 
-    unless @options.auth
-      throw new Error "Missing option: auth"
-
     @options.autoReconnect ?= yes
     
     @authenticate()
+    
+    @kite.on 'error', @emit.bind this, 'error'  # forward kite error events
 
   authenticate: ->
     { url, auth: { type, key }} = @options
@@ -25,13 +26,12 @@ module.exports = class Kontrol extends EventEmitter
       name  : 'kontrol'
       url   : url
       auth  : { type, key }
-    # forward kite error events:
-    .on 'error', (event) => @emit 'error', event
 
   initKite: (options) ->
     Kite = require 'kite.js'
     return new Kite options
 
+  # FIXME: this method seems quite arbitrary/unnecessary
   createKite: ({ name, url, token }) ->
     new Kite
       name    : name
@@ -71,7 +71,7 @@ module.exports = class Kontrol extends EventEmitter
   cancelWatcher: (id, callback) ->
 
   createUpdateHandler: (changes, callback) -> (err, change) =>
-
+    # TODO: implement
 
   @actions      =
     REGISTER    : 'register'
