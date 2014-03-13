@@ -1,6 +1,6 @@
 {
   "name": "kontrol.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A client library for Kontrol service registry",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "url": "https://github.com/koding/kontrol.js/issues"
   },
   "dependencies": {
-    "kite.js": "~0.0.2"
+    "kite.js": "~0.0.3"
   },
   "devDependencies": {
     "coffee-script": "~1.7.1",
